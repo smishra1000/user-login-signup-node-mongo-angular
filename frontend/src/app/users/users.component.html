@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">User Management</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li style="cursor: pointer" (click)="logout()" ><a><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Mobile</th>
+          <th scope="col">Email</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users;let i=index">
+          <td>{{user.name}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.mobile}}</td>
+          <td>{{user.email}}</td>
+          <td>
+            <button style="margin-right: 8px;" type="button" id="btnSubmit" class="btn btn-primary btn-sm" (click)="add()">Add</button>
+            <button style="margin-right: 8px;" type="button" id="btnCancel" class="btn btn-success btn-sm" (click)="edit(user._id)">Edit</button>
+            <button style="margin-right: 8px;" type="button" id="btnSubmit" class="btn btn-danger btn-sm" (click)="delete(user._id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

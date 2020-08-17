@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="col-md-4">
+
+	</div>
+  <div class="col-md-6">
+    <div class="login-panel panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Login</h3>
+      </div>
+      <div class="panel-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group" [ngClass]="{ 'has-error': invalidEmail() }">
+            <label for="email" class="control-label">E-mail</label>
+            <input type="text" formControlName="email" class="form-control" id="email" name="email" placeholder="enter email">
+            <p *ngIf="invalidEmail()" id="email_error" class="help-block">Invalid email address.</p>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': invalidPassword() }">
+            <label for="password" class="control-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="password" name="password" placeholder="enter password">
+            <p *ngIf="invalidPassword()" id="password_error" class="help-block">Invalid password.</p>
+          </div>
+            <div class="form-group has-error">
+              <button type="submit" class="btn btn-primary">Login</button>
+              <span><a (click)="router.navigate(['/']);" style="cursor:pointer">if not registered go to Register page</a></span>
+            </div>
+            <span *ngIf="error" style="color:red">{{error}}</span>
+        </form>
+      </div>
+    </div>
+  </div>
