@@ -53,6 +53,8 @@
 
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary">Register</button>
+						<button type="button" class="btn btn-danger pull-right" (click)="clear()">Clear</button>
+						<br/>
 						<span><a (click)="router.navigate(['/login']);" style="cursor:pointer">if already registered go to login page</a></span>
 					</div>
 					<div *ngIf="error" style="color:red">
